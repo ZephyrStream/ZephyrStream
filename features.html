@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Title and Description -->
+    <title>Features – IPTV Stream Pro</title>
+    <meta name="description" content="Explore the powerful features of IPTV Stream Pro. From our massive 4K VOD library and live sports coverage to EPG, catch-up TV, and multi-device support.">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- AOS (Animate on Scroll) Library CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* --- CSS STYLES (Same base as other pages) --- */
+        :root {
+            --dark-bg: #0D0D0D;
+            --card-bg: #1A1A1A;
+            --neon-blue: #00BFFF;
+            --neon-red: #FF1B4B;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B3B3B3;
+            --border-color: #262626;
+        }
+
+        /* --- Base & Reset --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+        }
+        .section-title span {
+            color: var(--neon-blue);
+        }
+
+        /* --- Header --- */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .nav-logo span {
+            color: var(--neon-blue);
+        }
+
+        /* --- Feature Detail Section --- */
+        .feature-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+        .feature-detail:nth-child(even) .feature-image {
+            order: 2;
+        }
+        .feature-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .feature-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--neon-blue);
+        }
+        .feature-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .feature-list i {
+            color: var(--neon-red);
+            font-size: 1.2rem;
+        }
+
+        /* --- All Features Grid Section --- */
+        .all-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .grid-feature-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .grid-feature-card .icon {
+            font-size: 2.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 15px;
+        }
+        .grid-feature-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .grid-feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-red));
+            padding: 60px 30px;
+            border-radius: 15px;
+            margin: 80px auto 0;
+        }
+        .cta-section h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .cta-section p { margin-bottom: 30px; color: rgba(255, 255, 255, 0.9); }
+        .btn-light {
+            background-color: var(--text-primary);
+            color: var(--dark-bg);
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-light:hover { transform: scale(1.05); }
+
+        /* --- Footer --- */
+        .footer {
+            background: var(--card-bg);
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .footer-links a { margin: 0 15px; color: var(--text-secondary); text-decoration: none; }
+        .copyright { margin-top: 20px; color: #666; font-size: 0.9rem; }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .feature-detail {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .feature-detail:nth-child(even) .feature-image {
+                order: 1;
+            }
+            .feature-image {
+                margin-bottom: 40px;
+            }
+            .feature-list {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="nav-logo">Stream<span>Pro</span></a>
+            <a href="index.html" style="color: var(--neon-blue); text-decoration: none; font-weight: 600;">← Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="features-overview">
+            <div class="container">
+                
+                <!-- Feature 1: Live TV & Sports -->
+                <div class="feature-detail" data-aos="fade-up">
+                    <div class="feature-text">
+                        <h2>Live TV & World-Class Sports</h2>
+                        <p>Immerse yourself in the action with access to over 10,000 live channels from across the globe. Never miss a moment of your favorite team with our comprehensive sports packages, covering all major leagues and pay-per-view events in stunning HD and 4K quality.</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-broadcast"></i> Global & Local Channels</li>
+                            <li><i class="bi bi-trophy-fill"></i> Major Sports Leagues (NFL, NBA, EPL)</li>
+                            <li><i class="bi bi-ticket-detailed-fill"></i> Live PPV Events Included</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://images.pexels.com/photos/1243337/pexels-photo-1243337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="A stadium lit up for a sports match">
+                    </div>
+                </div>
+
+                <!-- Feature 2: VOD Library -->
+                <div class="feature-detail" data-aos="fade-up">
+                    <div class="feature-image">
+                        <img src="https://images.pexels.com/photos/3762085/pexels-photo-3762085.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="A person browsing a library of movies on a large screen">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Unlimited Movies & Series</h2>
+                        <p>Dive into our massive Video-On-Demand (VOD) library, featuring over 40,000 titles. From the latest Hollywood blockbusters to complete seasons of binge-worthy TV shows, your next favorite story is just a click away. Our library is updated weekly, so there's always something new to discover.</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-film"></i> Latest Blockbuster Movies</li>
+                            <li><i class="bi bi-collection-play-fill"></i> Complete TV Series Box-sets</li>
+                            <li><i class="bi bi-badge-4k-fill"></i> Content in HD, FHD & 4K</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Multi-Device Compatibility -->
+                <div class="feature-detail" data-aos="fade-up">
+                    <div class="feature-text">
+                        <h2>Watch Anywhere, On Any Device</h2>
+                        <p>Your entertainment should travel with you. IPTV Stream Pro works seamlessly on all your favorite devices. Whether you're at home on your Smart TV or on the go with your smartphone, your channels and movies are always with you.</p>
+                        <ul class="feature-list">
+                            <li><i class="bi bi-tv-fill"></i> Smart TVs (Samsung, LG, etc.)</li>
+                            <li><i class="bi bi-fire"></i> Amazon Firestick & Android TV</li>
+                            <li><i class="bi bi-phone-fill"></i> iOS & Android Smartphones</li>
+                            <li><i class="bi bi-display-fill"></i> Windows & macOS Computers</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="https://images.pexels.com/photos/777001/pexels-photo-777001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="A modern desk setup with multiple screens showing the streaming service">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- All Features Grid -->
+        <section class="all-features">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">And So Much <span>More...</span></h2>
+                <div class="all-features-grid">
+                    <div class="grid-feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="bi bi-calendar-week icon"></i>
+                        <h3>EPG / TV Guide</h3>
+                        <p>Our clean and modern Electronic Program Guide lets you see what's on now and what's coming up next.</p>
+                    </div>
+                    <div class="grid-feature-card" data-aos="fade-up" data-aos-delay="150">
+                        <i class="bi bi-rewind-fill icon"></i>
+                        <h3>Catch-Up TV</h3>
+                        <p>Missed your favorite show? With Catch-Up TV, you can go back in time and watch programs from the past few days.</p>
+                    </div>
+                    <div class="grid-feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bi bi-people-fill icon"></i>
+                        <h3>Multiple Connections</h3>
+                        <p>Choose a plan that fits your household, with options for multiple simultaneous streams on different devices.</p>
+                    </div>
+                    <div class="grid-feature-card" data-aos="fade-up" data-aos-delay="250">
+                        <i class="bi bi-shield-lock-fill icon"></i>
+                        <h3>VPN Friendly</h3>
+                        <p>Our service is 100% compatible with VPNs, ensuring your privacy and security while you stream.</p>
+                    </div>
+                     <div class="grid-feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-lightning-charge-fill icon"></i>
+                        <h3>Instant Activation</h3>
+                        <p>No waiting around. As soon as you get your credentials, your service is active and ready to use immediately.</p>
+                    </div>
+                    <div class="grid-feature-card" data-aos="fade-up" data-aos-delay="350">
+                        <i class="bi bi-headset icon"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Our dedicated support team is available around the clock via WhatsApp and email to help with any questions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-section" data-aos="zoom-in">
+                    <h2>Experience the Ultimate in Streaming</h2>
+                    <p>Get your 24-hour free trial today and discover a new standard of entertainment.</p>
+                    <a href="index.html#contact" class="btn-light">Claim Free Trial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <p class="copyright">© 2024 IPTV Stream Pro. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate on Scroll) Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+    </script>
+
+</body>
+</html>
