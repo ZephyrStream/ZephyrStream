@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Title and Description -->
+    <title>Complete Your Purchase – IPTV Stream Pro</title>
+    <meta name="description" content="Securely purchase your IPTV Stream Pro subscription. Select your plan and contact us via WhatsApp or Telegram to complete your order in minutes.">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- AOS (Animate on Scroll) Library CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* --- CSS STYLES (Same base as other pages) --- */
+        :root {
+            --dark-bg: #0D0D0D;
+            --card-bg: #1A1A1A;
+            --neon-blue: #00BFFF;
+            --neon-red: #FF1B4B;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B3B3B3;
+            --border-color: #262626;
+        }
+
+        /* --- Base & Reset --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 800px; /* Narrower container for focus */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header --- */
+        .header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .nav-logo span {
+            color: var(--neon-blue);
+        }
+        
+        /* --- Checkout Section --- */
+        .checkout-section {
+            padding: 80px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        .section-header h1 span {
+            color: var(--neon-blue);
+        }
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+        .checkout-box {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Step 1: Plan Selection */
+        .plan-selection {
+            margin-bottom: 40px;
+        }
+        .plan-selection h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .plan-option {
+            padding: 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .plan-option h4 { font-size: 1.1rem; }
+        .plan-option .price { font-size: 1.5rem; font-weight: 600; color: var(--neon-blue); }
+        .plan-option.selected {
+            border-color: var(--neon-red);
+            background-color: rgba(255, 27, 75, 0.1);
+            transform: scale(1.05);
+        }
+        
+        /* Step 2: Contact & Payment */
+        .payment-process h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .contact-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+        .contact-btn i { font-size: 2rem; }
+        .contact-btn.whatsapp { background-color: #25D366; }
+        .contact-btn.telegram { background-color: #0088cc; }
+        .contact-btn:hover { transform: translateY(-5px); }
+        .payment-info {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .payment-info p { margin-bottom: 10px; }
+        .payment-logos img {
+            height: 30px;
+            margin: 0 10px;
+            filter: grayscale(1) brightness(1.5);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .plans-container { grid-template-columns: 1fr; }
+            .contact-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="nav-logo">Stream<span>Pro</span></a>
+            <a href="pricing.html" style="color: var(--neon-blue); text-decoration: none; font-weight: 600;">← Back to Pricing</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="checkout-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h1>Complete Your <span>Purchase</span></h1>
+                    <p>You're just a few steps away from unlimited entertainment.</p>
+                </div>
+
+                <div class="checkout-box" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <!-- Step 1: Select Your Plan -->
+                    <div class="plan-selection">
+                        <h3>1. Select Your Plan</h3>
+                        <div class="plans-container">
+                            <div class="plan-option" data-plan="1 Month Subscription">
+                                <h4>1 Month</h4>
+                                <p class="price">$15</p>
+                            </div>
+                             <div class="plan-option" data-plan="3 Month Subscription">
+                                <h4>3 Months</h4>
+                                <p class="price">$36</p>
+                            </div>
+                            <div class="plan-option selected" data-plan="12 Month Subscription">
+                                <h4>12 Months</h4>
+                                <p class="price">$96</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="border: none; border-top: 1px solid var(--border-color); margin: 40px 0;">
+
+                    <!-- Step 2: Contact us to Pay -->
+                    <div class="payment-process">
+                        <h3>2. Contact Us to Pay & Activate</h3>
+                        <div class="contact-buttons">
+                            <a href="#" id="whatsapp-link" target="_blank" class="contact-btn whatsapp">
+                                <i class="bi bi-whatsapp"></i>
+                                <span>Pay via WhatsApp</span>
+                            </a>
+                            <a href="#" id="telegram-link" target="_blank" class="contact-btn telegram">
+                                <i class="bi bi-telegram"></i>
+                                <span>Pay via Telegram</span>
+                            </a>
+                        </div>
+                        <div class="payment-info">
+                            <p>Click a button above. We'll confirm your plan and provide secure payment details for PayPal or Crypto.</p>
+                             <div class="payment-logos">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg" alt="Bitcoin">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Ethereum_logo_2014.svg" alt="Ethereum">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html">← Back to IPTV Stream Pro Home</a>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate on Scroll) Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // --- Plan Selection & Link Generation Logic ---
+        const planOptions = document.querySelectorAll('.plan-option');
+        const whatsappLink = document.getElementById('whatsapp-link');
+        const telegramLink = document.getElementById('telegram-link');
+        
+        const whatsappNumber = 'YOUR_WHATSAPP_NUMBER'; // Replace with your number
+        const telegramUsername = 'YOUR_TELEGRAM_USERNAME'; // Replace with your username
+        
+        let selectedPlan = '12 Month Subscription'; // Default selected plan
+
+        function updateContactLinks() {
+            const message = `Hello! I would like to purchase the ${selectedPlan}.`;
+            const encodedMessage = encodeURIComponent(message);
+            
+            whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            telegramLink.href = `https://t.me/${telegramUsername}?text=${encodedMessage}`;
+        }
+
+        planOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove 'selected' class from all options
+                planOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add 'selected' class to the clicked option
+                option.classList.add('selected');
+                
+                // Update the selected plan
+                selectedPlan = option.dataset.plan;
+                
+                // Update the links
+                updateContactLinks();
+            });
+        });
+
+        // Pre-select plan based on URL parameter if it exists
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const plan = urlParams.get('plan'); // e.g., ?plan=12
+            
+            if (plan) {
+                let targetPlan;
+                if(plan.includes('12')) targetPlan = document.querySelector('[data-plan="12 Month Subscription"]');
+                else if(plan.includes('3')) targetPlan = document.querySelector('[data-plan="3 Month Subscription"]');
+                else if(plan.includes('1')) targetPlan = document.querySelector('[data-plan="1 Month Subscription"]');
+                
+                if (targetPlan) {
+                    targetPlan.click();
+                }
+            } else {
+                // Initialize links with the default selected plan
+                updateContactLinks();
+            }
+        });
+
+    </script>
+
+</body>
+</html>
