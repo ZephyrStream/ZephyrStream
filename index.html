@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-        /* --- CSS STYLES --- */
+        /* --- ALL CSS STYLES EMBEDDED HERE --- */
         :root {
             --dark-bg: #0D0D0D;
             --card-bg: #1A1A1A;
@@ -67,6 +67,33 @@
         .section-title span {
             color: var(--neon-blue);
         }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background-color: var(--neon-blue);
+            color: var(--dark-bg);
+        }
+        .btn-primary:hover {
+            background-color: var(--text-primary);
+            transform: translateY(-3px);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--neon-blue);
+        }
+        .btn-secondary:hover {
+            background-color: var(--neon-blue);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
 
         /* --- Header --- */
         .header {
@@ -74,10 +101,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(13, 13, 13, 0.8);
-            backdrop-filter: blur(10px);
             padding: 15px 0;
             z-index: 1000;
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+        .header.scrolled {
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
         }
         .navbar {
@@ -107,7 +137,20 @@
         .nav-link:hover {
             color: var(--text-primary);
         }
-
+        .btn-trial {
+            background-color: var(--neon-blue);
+            color: var(--dark-bg);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-trial:hover {
+            background-color: var(--text-primary);
+            transform: scale(1.05);
+        }
+        
         /* --- Hero Section --- */
         .hero {
             height: 100vh;
@@ -132,34 +175,7 @@
             justify-content: center;
             gap: 20px;
         }
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-        .btn-primary {
-            background-color: var(--neon-blue);
-            color: var(--dark-bg);
-        }
-        .btn-primary:hover {
-            background-color: var(--text-primary);
-            transform: translateY(-3px);
-        }
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--text-primary);
-            border: 2px solid var(--neon-blue);
-        }
-        .btn-secondary:hover {
-            background-color: var(--neon-blue);
-            color: var(--dark-bg);
-            transform: translateY(-3px);
-        }
-
+        
         /* --- Features Section --- */
         .features-grid {
             display: grid;
@@ -191,40 +207,34 @@
             color: var(--text-secondary);
         }
 
-        /* --- Gallery Section --- */
-        .gallery-grid {
+        /* --- Trending Now Section --- */
+        .trending {
+            background-color: var(--dark-bg);
+        }
+        .trending-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 20px;
         }
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
+        .poster-card {
+            border-radius: 10px;
             overflow: hidden;
-            height: 300px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid transparent;
         }
-        .gallery-item img {
+        .poster-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            display: block;
         }
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .poster-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2);
         }
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(13, 13, 13, 0.8), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-        }
-        .gallery-overlay h4 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-        }
-
+        
         /* --- Pricing Section --- */
         .pricing-grid {
             display: grid;
@@ -253,21 +263,6 @@
         .price span {
             font-size: 1rem;
             color: var(--text-secondary);
-        }
-        .pricing-card .features-list {
-            list-style: none;
-            margin: 30px 0;
-            text-align: left;
-        }
-        .pricing-card .features-list li {
-            margin-bottom: 15px;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .pricing-card .features-list .bi-check-circle-fill {
-            color: var(--neon-blue);
         }
         .pricing-card .btn {
             width: 100%;
@@ -327,64 +322,12 @@
             padding-left: 15px;
         }
         
-        /* --- Contact Section --- */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .contact-info p {
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-        }
-        .contact-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .contact-btn {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .contact-btn.whatsapp { background-color: #25D366; }
-        .contact-btn.telegram { background-color: #0088cc; }
-        .contact-btn:hover { transform: scale(1.05); }
-        .contact-email a {
-            color: var(--neon-blue);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .contact-form .form-group {
-            margin-bottom: 20px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            color: var(--text-primary);
-            font-family: 'Poppins', sans-serif;
-        }
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
         /* --- Footer --- */
         .footer {
             background: var(--card-bg);
             padding: 50px 0;
             text-align: center;
+            border-top: 1px solid var(--border-color);
         }
         .footer-links {
             margin-bottom: 20px;
@@ -398,24 +341,30 @@
             font-size: 1.5rem;
             color: var(--text-secondary);
             margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--neon-blue);
         }
         .copyright {
             margin-top: 20px;
             color: #666;
             font-size: 0.9rem;
         }
-
+        
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+             .nav-links { display: none; }
         }
         @media (max-width: 768px) {
-            .nav-links { display: none; }
             .hero-content h1 { font-size: 2.5rem; }
             .cta-buttons { flex-direction: column; }
-            .gallery-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .trending-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
         }
 
     </style>
@@ -427,216 +376,103 @@
         <div class="container navbar">
             <a href="#home" class="nav-logo">Stream<span>Pro</span></a>
             <nav class="nav-links">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </nav>
+            <a href="trial.html" class="btn-trial">Free Trial</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up">
-                <h1>Unlimited Entertainment at Your Fingertips</h1>
-                <p>Experience the best of live TV and on-demand content. Thousands of channels, live sports, blockbuster movies, and trending series in stunning HD and 4K quality.</p>
-                <div class="cta-buttons">
-                    <a href="#pricing" class="btn btn-primary">Get Started</a>
-                    <a href="#features" class="btn btn-secondary">View Features</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Why Choose <span>Us?</span></h2>
-            <div class="features-grid">
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="bi bi-display feature-icon"></i>
-                    <h3>10,000+ Channels</h3>
-                    <p>Access a massive library of international and local channels.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="bi bi-badge-4k feature-icon"></i>
-                    <h3>4K VOD Library</h3>
-                    <p>Enjoy thousands of movies and series on-demand in ultra HD.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="bi bi-phone-stack feature-icon"></i>
-                    <h3>Multi-Device Support</h3>
-                    <p>Watch on your TV, phone, tablet, or computer. Anytime, anywhere.</p>
-                </div>
-                 <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="bi bi-calendar-week feature-icon"></i>
-                    <h3>EPG & Catch-up</h3>
-                    <p>Never miss a show with our electronic program guide and catch-up TV.</p>
-                </div>
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="bi bi-trophy feature-icon"></i>
-                    <h3>Live Sports</h3>
-                    <p>Stream all major sports leagues and PPV events in high quality.</p>
-                </div>
-                 <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="bi bi-shield-check feature-icon"></i>
-                    <h3>99.9% Uptime</h3>
-                    <p>Reliable, buffer-free streaming with our powerful, stable servers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">See The <span>Experience</span></h2>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-aos="fade-right">
-                    <img src="https://images.pexels.com/photos/3278968/pexels-photo-3278968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Movies preview">
-                    <div class="gallery-overlay"><h4>Latest Movies</h4></div>
-                </div>
-                <div class="gallery-item" data-aos="fade-left">
-                    <img src="https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Sports preview">
-                    <div class="gallery-overlay"><h4>Live Sports Action</h4></div>
-                </div>
-                <div class="gallery-item" data-aos="fade-right">
-                    <img src="https://images.pexels.com/photos/5691642/pexels-photo-5691642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Series preview">
-                    <div class="gallery-overlay"><h4>Binge-worthy Series</h4></div>
-                </div>
-                <div class="gallery-item" data-aos="fade-left">
-                    <img src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Streaming experience on multiple devices">
-                    <div class="gallery-overlay"><h4>Works on All Devices</h4></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Flexible Plans For <span>Everyone</span></h2>
-            <div class="pricing-grid">
-                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
-                    <h4>1 Month</h4>
-                    <div class="price">$15<span>/mo</span></div>
-                    <ul class="features-list">
-                        <li><i class="bi bi-check-circle-fill"></i> 10,000+ Channels</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Full VOD Library</li>
-                        <li><i class="bi bi-check-circle-fill"></i> HD & 4K Quality</li>
-                        <li><i class="bi bi-check-circle-fill"></i> 2 Connections</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Buy Now</a>
-                </div>
-                <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
-                    <div class="popular-badge">Most Popular</div>
-                    <h4>12 Months</h4>
-                    <div class="price">$8<span>/mo</span></div>
-                    <ul class="features-list">
-                        <li><i class="bi bi-check-circle-fill"></i> 10,000+ Channels</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Full VOD Library</li>
-                        <li><i class="bi bi-check-circle-fill"></i> HD & 4K Quality</li>
-                        <li><i class="bi bi-check-circle-fill"></i> 3 Connections</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" style="background-color: var(--neon-red); border-color: var(--neon-red);">Buy Now</a>
-                </div>
-                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
-                    <h4>3 Months</h4>
-                    <div class="price">$12<span>/mo</span></div>
-                    <ul class="features-list">
-                        <li><i class="bi bi-check-circle-fill"></i> 10,000+ Channels</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Full VOD Library</li>
-                        <li><i class="bi bi-check-circle-fill"></i> HD & 4K Quality</li>
-                        <li><i class="bi bi-check-circle-fill"></i> 2 Connections</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Buy Now</a>
-                </div>
-            </div>
-             <p style="text-align: center; margin-top: 40px; color: var(--text-secondary);" data-aos="fade-up">
-                Want to test it out? <a href="#contact" style="color: var(--neon-blue); font-weight: 600;">Get a 24-Hour FREE Trial!</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">What Our Users <span>Say</span></h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-header">
-                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="User avatar" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h5>John D. - USA</h5>
-                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                        </div>
-                    </div>
-                    <blockquote>"By far the most stable service I've used. The 4K sports channels are incredible. Zero buffering during the big games. Highly recommended!"</blockquote>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-header">
-                        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="User avatar" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h5>Sarah L. - UK</h5>
-                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                        </div>
-                    </div>
-                    <blockquote>"The movie and series library is huge and always updated. The customer support was super helpful with the setup on my smart TV."</blockquote>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-header">
-                        <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="User avatar" class="testimonial-avatar">
-                         <div class="testimonial-info">
-                            <h5>Mike R. - Canada</h5>
-                            <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-                        </div>
-                    </div>
-                    <blockquote>"I was skeptical about the free trial, but it was the real deal. Full access, no strings attached. Subscribed for a year immediately after."</blockquote>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Get Your Trial Or <span>Subscription</span></h2>
-            <div class="contact-grid" data-aos="fade-up">
-                <div class="contact-info">
-                    <h3>Start Watching in Minutes</h3>
-                    <p>Contact us via your preferred method to get your free trial or subscription. Our team is available 24/7 to assist you.</p>
-                    <div class="contact-buttons">
-                        <a href="#" class="contact-btn whatsapp"><i class="bi bi-whatsapp"></i> Contact on WhatsApp</a>
-                        <a href="#" class="contact-btn telegram"><i class="bi bi-telegram"></i> Message on Telegram</a>
-                    </div>
-                    <div class="contact-email">
-                        <p>Or send us an email at: <a href="mailto:support@iptvstreampro.com">support@iptvstreampro.com</a></p>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <h1>Unlimited Entertainment at Your Fingertips</h1>
+                    <p>Experience the best of live TV and on-demand content. Thousands of channels, live sports, blockbuster movies, and trending series in stunning HD and 4K quality.</p>
+                    <div class="cta-buttons">
+                        <a href="buy.html?plan=12" class="btn btn-primary">Get Started</a>
+                        <a href="features.html" class="btn btn-secondary">View Features</a>
                     </div>
                 </div>
-                <form class="contact-form" id="contact-form">
-                     <h3>Send a Quick Message</h3>
-                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                     </div>
-                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                     </div>
-                     <div class="form-group">
-                        <textarea name="message" placeholder="Your Message (e.g., 'I would like a free trial')" required></textarea>
-                     </div>
-                     <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Why Choose <span>Us?</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-display feature-icon"></i><h3>10,000+ Channels</h3><p>Access a massive library of international and local channels.</p></div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-badge-4k feature-icon"></i><h3>4K VOD Library</h3><p>Enjoy thousands of movies and series on-demand in ultra HD.</p></div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-phone-stack feature-icon"></i><h3>Multi-Device Support</h3><p>Watch on your TV, phone, tablet, or computer. Anytime, anywhere.</p></div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100"><i class="bi bi-trophy feature-icon"></i><h3>Live Sports</h3><p>Stream all major sports leagues and PPV events in high quality.</p></div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200"><i class="bi bi-shield-check feature-icon"></i><h3>99.9% Uptime</h3><p>Reliable, buffer-free streaming with our powerful, stable servers.</p></div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300"><i class="bi bi-headset feature-icon"></i><h3>24/7 Support</h3><p>Our expert team is always available to help you with any questions.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Now Section -->
+        <section id="trending" class="trending">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Trending <span>Now</span></h2>
+                <div class="trending-grid">
+                    <div class="poster-card" data-aos="zoom-in"><img src="https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg" alt="Dune Movie Poster"></div>
+                    <div class="poster-card" data-aos="zoom-in" data-aos-delay="50"><img src="https://image.tmdb.org/t/p/w500/fiVW06jE7z9YnO4trhaMEdclSiC.jpg" alt="The Batman Movie Poster"></div>
+                    <div class="poster-card" data-aos="zoom-in" data-aos-delay="100"><img src="https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIY2VFIh5bQJzgxT.jpg" alt="The Boys Series Poster"></div>
+                    <div class="poster-card" data-aos="zoom-in" data-aos-delay="150"><img src="https://images.pexels.com/photos/209969/pexels-photo-209969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Champions League Football Poster"></div>
+                    <div class="poster-card" data-aos="zoom-in" data-aos-delay="200"><img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg" alt="Oppenheimer Movie Poster"></div>
+                    <div class="poster-card" data-aos="zoom-in" data-aos-delay="250"><img src="https://image.tmdb.org/t/p/w500/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg" alt="House of the Dragon Series Poster"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                 <h2 class="section-title" data-aos="fade-up">Flexible Plans For <span>Everyone</span></h2>
+                 <p style="text-align: center; margin-top: -40px; margin-bottom: 40px; color: var(--text-secondary);" data-aos="fade-up">All plans come with a 24-hour free trial. No commitments.</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="100"><h4>1 Month</h4><div class="price">$15<span>/mo</span></div><a href="buy.html?plan=1" class="btn btn-secondary">Buy Now</a></div>
+                    <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200"><div class="popular-badge">Most Popular</div><h4>12 Months</h4><div class="price">$8<span>/mo</span></div><a href="buy.html?plan=12" class="btn btn-primary" style="background-color: var(--neon-red); border-color: var(--neon-red);">Buy Now</a></div>
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="300"><h4>3 Months</h4><div class="price">$12<span>/mo</span></div><a href="buy.html?plan=3" class="btn btn-secondary">Buy Now</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">What Our Users <span>Say</span></h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="testimonial-header"><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="User avatar" class="testimonial-avatar"><div class="testimonial-info"><h5>John D. - USA</h5><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div></div>
+                        <blockquote>"By far the most stable service I've used. The 4K sports channels are incredible. Zero buffering during the big games. Highly recommended!"</blockquote>
+                    </div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                         <div class="testimonial-header"><img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="User avatar" class="testimonial-avatar"><div class="testimonial-info"><h5>Sarah L. - UK</h5><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div></div>
+                        <blockquote>"The movie and series library is huge and always updated. The customer support was super helpful with the setup on my smart TV."</blockquote>
+                    </div>
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="testimonial-header"><img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="User avatar" class="testimonial-avatar"><div class="testimonial-info"><h5>Mike R. - Canada</h5><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div></div>
+                        <blockquote>"I was skeptical about the free trial, but it was the real deal. Full access, no strings attached. Subscribed for a year immediately after."</blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="#">About Us</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
+                <a href="about.html">About Us</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="contact.html">Contact</a>
             </div>
             <div class="social-icons">
                 <a href="#"><i class="bi bi-youtube"></i></a>
@@ -649,22 +485,23 @@
     <!-- AOS (Animate on Scroll) Library JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // --- JAVASCRIPT --- //
+        // --- ALL JAVASCRIPT EMBEDDED HERE ---
 
         // Initialize AOS
         AOS.init({
-            duration: 800, // animation duration
-            once: true,    // animation happens only once
+            duration: 800,
+            once: true,
         });
 
-        // Handle fake contact form submission
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you shortly.');
-            contactForm.reset();
+        // Sticky Header on Scroll
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
-
 </body>
 </html>
