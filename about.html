@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Title and Description -->
+    <title>About Us – IPTV Stream Pro</title>
+    <meta name="description" content="Learn about the mission and values behind IPTV Stream Pro. We are a team of streaming enthusiasts dedicated to providing the most reliable and high-quality IPTV service.">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- AOS (Animate on Scroll) Library CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* --- CSS STYLES (Same as landing page, with additions) --- */
+        :root {
+            --dark-bg: #0D0D0D;
+            --card-bg: #1A1A1A;
+            --neon-blue: #00BFFF;
+            --neon-red: #FF1B4B;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B3B3B3;
+            --border-color: #262626;
+        }
+
+        /* --- Base & Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+        }
+        .section-title span {
+            color: var(--neon-blue);
+        }
+
+        /* --- Header (Copied from landing page) --- */
+        .header {
+            position: sticky; /* Sticky for about page */
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .nav-logo span {
+            color: var(--neon-blue);
+        }
+
+        /* --- About Hero Section --- */
+        .about-hero {
+            text-align: center;
+            padding-bottom: 60px;
+        }
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Story & Mission Section --- */
+        .story-section {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 60px;
+            border: 1px solid var(--border-color);
+        }
+        .story-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--neon-blue);
+        }
+        .story-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- Values Section --- */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .value-card {
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 15px;
+        }
+        .value-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .value-card p {
+            color: var(--text-secondary);
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-red));
+            padding: 60px 30px;
+            border-radius: 15px;
+            margin: 100px auto 0;
+        }
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        .cta-section p {
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .btn-light {
+            background-color: var(--text-primary);
+            color: var(--dark-bg);
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-light:hover {
+            transform: scale(1.05);
+            background-color: #f0f0f0;
+        }
+
+        /* --- Footer (Copied from landing page) --- */
+        .footer {
+            background: var(--card-bg);
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .footer-links a {
+            margin: 0 15px;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .social-icons a {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin: 0 10px;
+        }
+        .copyright {
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="nav-logo">Stream<span>Pro</span></a>
+            <!-- Simple nav for this page -->
+            <a href="index.html" style="color: var(--neon-blue); text-decoration: none; font-weight: 600;">← Back to Home</a>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container" data-aos="fade-up">
+            <h1>Built by Fans, <span>For Fans.</span></h1>
+            <p>We're not just a service provider; we're passionate streamers just like you. Discover the story and mission that drives IPTV Stream Pro.</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story">
+        <div class="container">
+            <div class="story-section" data-aos="fade-up">
+                <div class="story-content">
+                    <h2>Our Journey</h2>
+                    <p>Our journey began with a simple, frustrating problem: endless buffering, low-quality streams, and non-existent customer support. We were tired of paying for unreliable IPTV services that ruined the excitement of a big game or a movie night.</p>
+                    <p>We knew there had to be a better way. We believed that streaming should be seamless, high-quality, and backed by people who actually care.</p>
+                    <p>And so, <strong>IPTV Stream Pro</strong> was born. We set out on a mission to build the service we always wanted for ourselves—one founded on stability, quality, and a genuine passion for entertainment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Core Values Section -->
+    <section class="our-values">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Core <span>Values</span></h2>
+            <div class="values-grid">
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="bi bi-gem value-icon"></i>
+                    <h3>Uncompromising Quality</h3>
+                    <p>We invest in powerful, stable servers to deliver a buffer-free experience in stunning HD and 4K. Quality isn't an option; it's our standard.</p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="bi bi-film value-icon"></i>
+                    <h3>World-Class Content</h3>
+                    <p>Our library is curated for entertainment lovers. We ensure you have access to the sports, movies, and series you care about, updated regularly.</p>
+                </div>
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="bi bi-headset value-icon"></i>
+                    <h3>Customer-Centric Support</h3>
+                    <p>When you need help, you'll talk to a real person who is happy to assist. Our 24/7 support team is here to ensure you have the best experience possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-section" data-aos="zoom-in">
+                <h2>Ready to Experience the Difference?</h2>
+                <p>Join thousands of happy viewers and see why we're the trusted choice for premium streaming.</p>
+                <a href="index.html#pricing" class="btn-light">View Our Plans</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-youtube"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+            </div>
+            <p class="copyright">© 2024 IPTV Stream Pro. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate on Scroll) Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+    </script>
+
+</body>
+</html>
